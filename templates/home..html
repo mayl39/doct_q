@@ -1,0 +1,19 @@
+<h1>Welcome, {{ current_user.username }}!</h1>
+
+{% if current_user.role == 'admin' %}
+    <h2>Admin Panel</h2>
+    <h3>Documents Waiting for Approval</h3>
+    <ul>
+        {% for document in documents %}
+            <li>
+                {{ document.file_name }} - {{ document.status }}
+                <form method="POST" action="{{ url_for('approve_document', document_id=document.id) }}">
+                    <button type="submit">Approve</button>
+                </form>
+                <form method="POST" action="{{ url_for('reject_document', document_id=document.id) }}">
+                    <button type="submit">Reject</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
