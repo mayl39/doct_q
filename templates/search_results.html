@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <a href="{{ url_for('upload') }}">Upload New Document</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>File Name</th>
+                <th>Category</th>
+                <th>Subcategory</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for document in documents %}
+            <tr>
+                <td>{{ document.file_name }}</td>
+                <td>{{ document.category }}</td>
+                <td>{{ document.sub_category }}</td>
+                <td>{{ document.status }}</td>
+                <td>
+                    <form method="POST" action="{{ url_for('approve_document', document_id=document.id) }}">
+                        <button type="submit">Approve</button>
+                    </form>
+                    <form method="POST" action="{{ url_for('reject_document', document_id=document.id) }}">
+                        <button type="submit">Reject</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

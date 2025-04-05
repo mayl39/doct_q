@@ -1,6 +1,29 @@
-<form method="POST" enctype="multipart/form-data">
-    <input type="file" name="file">
-    <input type="text" name="category" placeholder="Category">
-    <input type="text" name="sub_category" placeholder="Sub-category">
-    <button type="submit">Upload</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Document</title>
+         <!-- ใช้ url_for เพื่อเข้าถึงไฟล์ CSS -->
+         <link rel="stylesheet" href="{{ url_for('static', filename='styles_ud.css') }}">
+</head>
+<body>
+    <div class="upload-container">
+        <div class="upload-card">
+            <h2>Upload New Document</h2>
+            <form method="POST" enctype="multipart/form-data">
+                <div class="input-group">
+                    <input type="file" name="file" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="category" placeholder="Category" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="sub_category" placeholder="Sub-category" required>
+                </div>
+                <button type="submit" class="btn">Upload</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f5f9; /* Light grey background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Upload container */
+.upload-container {
+    width: 100%;
+    max-width: 600px; /* กำหนดขนาดสูงสุด */
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* Upload card header */
+.upload-card h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #007bff; /* สีฟ้า */
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Input group styling */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button styling */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .upload-container {
+        padding: 20px;
+    }
+
+    .upload-card h2 {
+        font-size: 24px;
+    }
+
+    .input-group input {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+}

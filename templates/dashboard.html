@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_db.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>Welcome to the Document Dashboard</h1>
+            <a href="{{ url_for('upload') }}" class="btn upload-btn">Upload New Document</a>
+        </header>
+
+        <!-- แสดง Flash Alert Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="alert-messages">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <section class="documents-section">
+            <table class="documents-table">
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Category</th>
+                        <th>Subcategory</th>
+                        <th>Status</th>
+                        <th>File Link</th>
+                        {% if current_user.role == 'admin' %}
+                        <th>Actions</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for document in documents %}
+                    <tr class="{{ document.status|lower }}">
+                        <td>{{ document.file_name }}</td>
+                        <td>{{ document.category }}</td>
+                        <td>{{ document.sub_category }}</td>
+                        <td>{{ document.status }}</td>
+                        <td>
+                            {% if document.status == 'Approved' %}
+                                <a href="{{ url_for('download_document', document_id=document.id) }}" target="_blank" class="btn download-btn">Download</a>
+                            {% else %}
+                                <span class="status-unavailable">Not Available</span>
+                            {% endif %}
+                        </td>
+                        {% if current_user.role == 'admin' %}
+                        <td>
+                            <form method="POST" action="{{ url_for('approve_document', document_id=document.id) }}">
+                                <button type="submit" class="btn approve-btn">Approve</button>
+                            </form>
+                            <form method="POST" action="{{ url_for('reject_document', document_id=document.id) }}">
+                                <button type="submit" class="btn reject-btn">Reject</button>
+                            </form>
+                        </td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

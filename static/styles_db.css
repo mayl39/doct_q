@@ -1,0 +1,266 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f5f9; /* Light grey background */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Dashboard container */
+.dashboard-container {
+    width: 100%;
+    max-width: 1200px; /* กำหนดขนาดสูงสุด */
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* Dashboard header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #007bff; /* สีฟ้า */
+}
+
+.dashboard-header a {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-header a:hover {
+    background-color: #0056b3;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+table th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+    color: #333;
+}
+
+table td a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+table td a:hover {
+    text-decoration: underline;
+}
+
+/* Action Buttons for Admin */
+.actions-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.actions-form form {
+    margin: 5px 0;
+}
+
+.actions-form button {
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.actions-form button:hover {
+    background-color: #218838;
+}
+
+.actions-form .reject-btn {
+    background-color: #dc3545;
+}
+
+.actions-form .reject-btn:hover {
+    background-color: #c82333;
+}
+
+/* Card-style display for each row */
+.document-card {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.document-card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.document-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.document-card .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.document-card .actions button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.document-card .actions button:hover {
+    background-color: #0056b3;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 15px;
+    }
+
+    table th, table td {
+        font-size: 14px;
+    }
+
+    .document-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .actions-form {
+        align-items: flex-start;
+    }
+
+    .dashboard-header h1 {
+        font-size: 24px;
+    }
+
+    .dashboard-header a {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+
+/* Alert Styles */
+.alert-messages {
+    margin-bottom: 20px;
+}
+
+.alert {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.alert-success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.alert-danger {
+    background-color: #f44336;
+    color: white;
+}
+
+.alert-info {
+    background-color: #2196F3;
+    color: white;
+}
+
+/* ปุ่มพื้นฐาน */
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* ปุ่ม Approve */
+.approve-btn {
+    background-color: #4CAF50; /* สีเขียว */
+    color: white;
+}
+
+.approve-btn:hover {
+    background-color: #45a049; /* สีเขียวเข้ม */
+    transform: scale(1.05);
+}
+
+.approve-btn:active {
+    background-color: #3e8e41;
+}
+
+/* ปุ่ม Reject */
+.reject-btn {
+    background-color: #f44336; /* สีแดง */
+    color: white;
+}
+
+.reject-btn:hover {
+    background-color: #e53935; /* สีแดงเข้ม */
+    transform: scale(1.05);
+}
+
+.reject-btn:active {
+    background-color: #d32f2f;
+}
+
+/* ปรับปุ่มเมื่อกด */
+.btn:active {
+    transform: scale(0.98);
+}
+

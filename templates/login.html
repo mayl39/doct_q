@@ -1,5 +1,38 @@
-<form method="POST">
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
-    <button type="submit">Login</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+     <!-- ใช้ url_for เพื่อเข้าถึงไฟล์ CSS -->
+     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Company Logo -->
+            <div class="logo">
+                <img src="{{ url_for('static', filename='THKB-01.png') }}" alt="Company Logo" class="logo-img">
+            </div>
+            <h2>Welcome Back!</h2>
+            <form method="POST">
+                <div class="input-group">
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            
+           <!--<div class="social-login">
+                <p>Or login with:</p>
+                <button class="social-btn google-btn">Login with Google</button>
+                <button class="social-btn facebook-btn">Login with Facebook</button>
+            </div>--> 
+
+            <p class="signup-link">Don't have an account? <a href="{{ url_for('register') }}">Sign up</a></p>
+        </div>
+    </div>
+</body>
+</html>
