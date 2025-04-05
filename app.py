@@ -211,4 +211,3 @@ if __name__ == '__main__':
     with app.app_context():  # เริ่มต้น application context
         db.create_all()  # สร้างตารางในฐานข้อมูล
         app.run(host='0.0.0.0', port=8000)
-    app.run(debug=True)  # รันแอปพลิเคชัน
